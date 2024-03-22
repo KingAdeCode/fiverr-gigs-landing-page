@@ -24,7 +24,7 @@ $sub_title_font_size: 1.4em;
 
 
 body {
-    margin: 0;
+    margin: 0px;
     padding: 0px;
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
@@ -32,6 +32,10 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.rounded-logo {
+    border-radius: 100%;
 }
 
 h1,
@@ -42,6 +46,31 @@ p {
     margin: 0px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
 .container {
     max-width: 90%;
     margin: auto;
@@ -50,26 +79,34 @@ p {
 
 
 header {
-    padding: 20px 0px;
-
     .top-logo {
         margin-top: 30px;
         display: flex;
         justify-content: center;
+
+        .rounded-logo {
+            border-radius: 100%
+        }
     }
 
-    .header-title {
-        @include heading-style(1.8);
-        text-align: center;
-        max-width: 850px;
-        margin: auto;
-        padding-top: 30px;
+    .header-content {
+        padding: 1em;
+
+        .header-title {
+            @include heading-style(1.8);
+            text-align: center;
+            max-width: 1000px;
+            margin: auto;
+            padding-top: 30px;
+        }
+
+        .header-subtitle {
+            @include subtitle-style(1.16);
+            text-align: center;
+        }
     }
 
-    .header-subtitle {
-        @include subtitle-style(1);
-        text-align: center;
-    }
+
 }
 
 .grid {
@@ -81,6 +118,8 @@ header {
         padding: 1.5em;
         border-radius: 20px;
         text-decoration: none;
+        cursor: pointer;
+
 
         .image {
             border-radius: 20px;
@@ -114,24 +153,46 @@ header {
 
 footer {
     border-top: 1px solid #dddddd;
+    margin-top: 5em;
 
     .footer-content {
         display: flex;
         gap: 5em;
         justify-content: center;
         flex-wrap: wrap;
+        align-items: center;
     }
 }
 
 @media screen and (max-width: 800px) {
     header {
 
-        .header-title {
-            @include heading-style(1.3);
-            text-align: center;
-            max-width: 850px;
-            margin: auto;
-            padding-top: 30px;
+        .header-content {
+            .header-title {
+                @include heading-style(1.3);
+                text-align: center;
+                max-width: 850px;
+                margin: auto;
+                padding-top: 30px;
+            }
+        }
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-gap: 2em;
+    }
+
+    footer {
+
+        .footer-content {
+            gap: 1em;
+
         }
     }
 }
